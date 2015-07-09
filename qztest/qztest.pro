@@ -1,11 +1,11 @@
 TEMPLATE = app
 QT -= gui
-CONFIG += qtestlib
+CONFIG += testlib
 CONFIG += console
 CONFIG -= app_bundle
 DEPENDPATH += .
 INCLUDEPATH += .
-!win32: LIBS += -lz
+LIBS += -lz
 win32 {
     # workaround for qdatetime.h macro bug
     DEFINES += NOMINMAX

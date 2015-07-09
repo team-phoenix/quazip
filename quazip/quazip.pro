@@ -21,6 +21,7 @@ unix:!symbian {
 }
 
 win32 {
+    LIBS += -lz
     headers.path=$$PREFIX/include/quazip
     headers.files=$$HEADERS
     target.path=$$PREFIX/lib
