@@ -57,4 +57,7 @@ symbian {
     }
 }
 
-macx { QMAKE_MAC_SDK = macosx10.11 }
+macx {
+    QMAKE_MAC_SDK = macosx10.11
+    LIBS += -lz
+}
