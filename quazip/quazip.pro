@@ -56,3 +56,5 @@ symbian {
         BLD_INF_RULES.prj_exports += "$$header $$exportheaders.path/$$basename(header)"
     }
 }
+
+macx { QMAKE_MAC_SDK = macosx10.11 }
