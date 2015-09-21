@@ -1,5 +1,5 @@
 TEMPLATE = lib
-CONFIG += qt warn_on
+CONFIG += qt warn_on staticlib
 QT -= gui
 !win32:VERSION = 1.0.0
 
