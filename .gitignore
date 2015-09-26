@@ -206,6 +206,7 @@ develop-eggs/
 pip-log.txt
 
 # Unit test / coverage reports
+qztest/coverage.sh
 .coverage
 .tox
 
