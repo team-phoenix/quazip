@@ -1,36 +1,44 @@
-TEMPLATE = lib
-CONFIG += qt warn_on staticlib static
-CONFIG -= shared dll
-QT -= gui
-VERSION = 1.0.0
+##
+## Extra targets
+##
 
-DEFINES += QUAZIP_BUILD
-CONFIG( staticlib ): DEFINES += QUAZIP_STATIC
+    QMAKE_EXTRA_TARGETS += portable
 
-# Input
-include( quazip.pri )
+##
+## Qt settings
+##
 
-LIBS += -lz
+    TEMPLATE = lib
+    CONFIG += qt warn_on staticlib static
+    CONFIG -= shared dll
 
-win32 {
-    CONFIG( debug, debug|release ) {
-        OBJECTS_DIR = debug/.obj
-        MOC_DIR = debug/.moc
-    }
+    # Undefine this (for some reason it's on by default on Windows)
+    CONFIG -= debug_and_release debug_and_release_target
 
-    CONFIG( release, debug|release ) {
-        OBJECTS_DIR = release/.obj
-        MOC_DIR = release/.moc
-    }
-}
-else {
-    OBJECTS_DIR = .obj
-    MOC_DIR = .moc
-}
+    QT -= gui
+    VERSION = 1.0.0
 
-# workaround for qdatetime.h macro bug
-win32: DEFINES += NOMINMAX
+##
+## Compiler settings
+##
 
-macx: QMAKE_MAC_SDK = macosx10.11
+    DEFINES += QUAZIP_BUILD
+    CONFIG( staticlib ): DEFINES += QUAZIP_STATIC
 
-QMAKE_EXTRA_TARGETS += portable
+    # workaround for qdatetime.h macro bug
+    win32: DEFINES += NOMINMAX
+
+    # FIXME: Remove once newer Qt versions make this unnecessary
+    macx: QMAKE_MAC_SDK = macosx10.11
+
+    # Input
+    include( quazip.pri )
+
+    OBJECTS_DIR = obj
+    MOC_DIR = moc
+
+##
+## Linker settings
+##
+
+    LIBS += -lz
