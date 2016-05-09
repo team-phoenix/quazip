@@ -25,6 +25,9 @@
     DEFINES += QUAZIP_BUILD
     CONFIG( staticlib ): DEFINES += QUAZIP_STATIC
 
+    # Build with debugging info
+    DEFINES += QT_MESSAGELOGCONTEXT
+
     # workaround for qdatetime.h macro bug
     win32: DEFINES += NOMINMAX
 
