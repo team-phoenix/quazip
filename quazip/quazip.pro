@@ -12,8 +12,8 @@
     CONFIG += qt warn_on staticlib static
     CONFIG -= shared dll
 
-    # Undefine this (for some reason it's on by default on Windows)
-    CONFIG -= debug_and_release debug_and_release_target
+    # Undefine this for gcc (MINGW), it's not necessary
+    gcc: CONFIG -= debug_and_release debug_and_release_target
 
     QT -= gui
     VERSION = 1.0.0
@@ -44,4 +44,4 @@
 ## Linker settings
 ##
 
-    LIBS += -lz
+    !msvc: LIBS += -lz
