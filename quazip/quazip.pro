@@ -31,9 +31,6 @@
     # workaround for qdatetime.h macro bug
     win32: DEFINES += NOMINMAX
 
-    # FIXME: Remove once newer Qt versions make this unnecessary
-    macx: QMAKE_MAC_SDK = macosx10.11
-
     # Input
     include( quazip.pri )
 
